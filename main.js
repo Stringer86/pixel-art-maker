@@ -69,25 +69,48 @@ header.style.color = "navy";
 header.style.fontFamily = "helvetica";
 header.style.padding = "20px";
 header.style.fontSize = "40px";
+grid.style.marginLeft = "3%";
 document.body.appendChild(grid);
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 15; i++) {
   var row = document.createElement('div');
   grid.appendChild(row);
-  row.style.marginTop = "5px";
-  for (var j = 0; j <20; j++) {
+  for (var j = 0; j <30; j++) {
     var square = document.createElement('div');
     grid.appendChild(square);
-    square.style.height = "10px";
-    square.style.width = "10px";
+    square.style.height = ".1%";
+    square.style.width = ".1%";
     square.style.border = "1px solid black";
     square.style.display = "inline-block";
     square.addEventListener('click', changeColor);
-    square.style.padding = "15px"
+    square.style.padding = "1%"
 
   }
 }
 
 function changeColor(event) {
   this.style.backgroundColor = "red";
+}
+
+//palette circles
+var colors = ["red", "orange", "yellow", "green", "blue", "purple", "crimson", "teal", "coral", "white"];
+var paletteSection = document.createElement("section");
+document.body.appendChild(paletteSection);
+paletteSection.style.margin = "30px 0 0 3%";
+for(var i = 0; i < 1; i++) {
+  var pRow = document.createElement('div');
+  paletteSection.appendChild(pRow);
+  for (var j = 0; j <= 9; j++) {
+    var pCircle = document.createElement('div');
+    paletteSection.appendChild(pCircle);
+    pCircle.style.backgroundColor = colors[j];
+    pCircle.style.height = ".1%";
+    pCircle.style.width = ".1%";
+    pCircle.style.border = "1px solid black";
+    pCircle.style.borderRadius = "50%";
+    pCircle.style.display = "inline-block";
+    pCircle.style.padding = "2%";
+    pCircle.style.marginLeft = "2%";
+  }
+
 }
