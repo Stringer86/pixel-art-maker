@@ -87,9 +87,12 @@ for (var i = 0; i < 15; i++) {
 
   }
 }
-
+var color;
+function getColorFromPalette(event) {
+  color = this.style.backgroundColor;
+}
 function changeColor(event) {
-  this.style.backgroundColor = "red";
+  this.style.backgroundColor = color; ///we will get the color from getColorFromPalette function
 }
 
 //palette circles
@@ -111,6 +114,7 @@ for(var i = 0; i < 1; i++) {
     pCircle.style.display = "inline-block";
     pCircle.style.padding = "2%";
     pCircle.style.marginLeft = "2%";
+    pCircle.addEventListener('click', getColorFromPalette);
   }
 
 }
