@@ -48,4 +48,4 @@ A good domain name for this project is `USERNAME-pixel-art-maker.surge.sh` where
 
 PASTE YOUR PRODUCTION URL HERE
 
-[My awesome pixel art maker](stringer86-pixel-art-maker.surge.sh)
+[My awesome pixel art maker](http://stringer86-pixel-art-maker.surge.sh)
