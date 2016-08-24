@@ -118,7 +118,6 @@ header {
 	min-width: 626px;
 	display: flex;
 	flex-wrap: wrap;
-	border: 3px solid goldenrod;
 	padding-left: 10px;
 }
 
