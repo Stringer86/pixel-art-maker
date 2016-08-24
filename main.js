@@ -1,21 +1,24 @@
 //create container & header
 var grid = document.createElement("section");
 grid.id = "container";
+grid.style.position = "flex";
+grid.style.flexWrap = "wrap";
 var header = document.createElement("header");
 document.body.appendChild(header);
 header.innerHTML = "LITE-BRITE";
 document.body.appendChild(grid);
 
 //create rows and circles
-for (var i = 0; i < 24; i++) {
+for (var i = 0; i < 28; i++) {
   var row = document.createElement('div');
   grid.appendChild(row);
   row.style.clear = "both";
-  for (var j = 0; j <40; j++) {
+  for (var j = 0; j <44; j++) {
     var circle = document.createElement('div');
     grid.appendChild(circle);
     circle.className = "circle";
     circle.addEventListener('mousedown', changeColor);
+    circle.addEventListener('mouseenter', drag);
   }
 }
 
@@ -23,19 +26,24 @@ for (var i = 0; i < 24; i++) {
 var color;
 function getColorFromPalette(event) {
   color = this.style.backgroundColor;
-  pSquare.style.backgroundColor = color;
+  // pSquare.style.backgroundColor = color;
 }
 function changeColor(event) {
-  this.style.backgroundColor = color; ///we will get the color from getColorFromPalette function
+  event.target.style.backgroundColor = color;
+  if (event.target.style.backgroundColor) {
+    event.target.style.boxShadow = "0 0 25px rgba(252, 244, 146, 5)";
+  }
+ ///we will get the color from getColorFromPalette function
 }
-function outline(event) {
-  this.style.boxShadow = "0 0 25px rgba(81, 203, 238, 1)";
-
-}
+// function outline(event) {
+//   this.style.boxShadow = "0 0 25px rgba(255,246,0,1)";
+//
+// }
 function reset(event) {
   var children = document.getElementById('container').getElementsByTagName('div');
   for (var i = 0; i < children.length; i++) {
     children[i].style.backgroundColor = "black";
+    children[i].style.boxShadow = "none";
   }
 }
 
@@ -66,7 +74,19 @@ eSquare.className = 'eSquare';
 eSquare.textContent = "Reset";
 eSquare.addEventListener('click', reset);
 
+var mouseDown;
+document.onmousedown = function() {
+  mouseDown = true;
+}
+document.onmouseup = function() {
+  mouseDown = false;
+}
 
+function drag(event) {
+  if(mouseDown) {
+    changeColor(event);
+  }
+}
 
 
 //this creates a box to let person know which color they selected;

@@ -113,10 +113,13 @@ header {
 #container {
 	margin-left: 5%;
 	margin-right: 16%;
-	box-sizing: border-box;
-	width: 100%;
+	/*box-sizing: border-box;*/
+	width: 80%;
 	min-width: 626px;
-
+	display: flex;
+	flex-wrap: wrap;
+	border: 3px solid goldenrod;
+	padding-left: 10px;
 }
 
 .circle {
@@ -131,8 +134,8 @@ header {
 }
 
 .pCircle {
-	height: ".1%";
-	width: ".1%";
+	height: .1%;
+	width: .1%;
 	border: 1px solid gray;
 	border-radius: 50%;
 	display: inline-block;
